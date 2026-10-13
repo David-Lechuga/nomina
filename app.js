@@ -172,12 +172,26 @@ function loadAgentProfile() {
 }
 
 
+
 function handlePrint() {
   // 1. Ocultar siempre el apartado 6 (Acciones) al imprimir
   const panelActions = document.getElementById("panel-actions");
   if (panelActions) panelActions.classList.add("hide-on-print");
 
-  // 2. Comprobar apartado 3 (Horas Extraordinarias)
+  // 2. Procesar filas de cantidad generales (Apartado 2: Trienios y Noches)
+  // Si trienio-c2, trienio-c1 o noches están a 0, se ocultan individualmente en la impresión.
+  const allQuantityRows = document.querySelectorAll('.page-shell .panel:not(#panel-hours):not(#panel-pays):not(#panel-actions) .quantity-row');
+  allQuantityRows.forEach(row => {
+    const select = row.querySelector('select');
+    const val = select ? Number(select.value) : 0;
+    if (val === 0) {
+      row.classList.add('hide-on-print');
+    } else {
+      row.classList.remove('hide-on-print');
+    }
+  });
+
+  // 3. Comprobar apartado 3 (Horas Extraordinarias)
   const panelHours = document.getElementById("panel-hours");
   if (panelHours) {
     const hourRows = panelHours.querySelectorAll('.quantity-row');
@@ -199,7 +213,7 @@ function handlePrint() {
     }
   }
 
-  // 3. Comprobar apartado 4 (Pagas Extras)
+  // 4. Comprobar apartado 4 (Pagas Extras)
   const panelPays = document.getElementById("panel-pays");
   if (panelPays) {
     const payRows = panelPays.querySelectorAll('.quantity-row');
