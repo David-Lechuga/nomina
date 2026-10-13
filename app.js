@@ -171,20 +171,63 @@ function loadAgentProfile() {
   }
 }
 
+
 function handlePrint() {
-  const quantityRows = document.querySelectorAll('.quantity-row');
-  quantityRows.forEach(row => {
-    const select = row.querySelector('select');
-    const input = row.querySelector('input');
-    const val = select ? Number(select.value) : (input ? Number(input.value) : 0);
-    if (val === 0) {
-      row.classList.add('hide-on-print');
+  // 1. Ocultar siempre el apartado 6 (Acciones) al imprimir
+  const panelActions = document.getElementById("panel-actions");
+  if (panelActions) panelActions.classList.add("hide-on-print");
+
+  // 2. Comprobar apartado 3 (Horas Extraordinarias)
+  const panelHours = document.getElementById("panel-hours");
+  if (panelHours) {
+    const hourRows = panelHours.querySelectorAll('.quantity-row');
+    let hasActiveHours = false;
+    hourRows.forEach(row => {
+      const select = row.querySelector('select');
+      const val = select ? Number(select.value) : 0;
+      if (val > 0) {
+        hasActiveHours = true;
+        row.classList.remove('hide-on-print');
+      } else {
+        row.classList.add('hide-on-print');
+      }
+    });
+    if (!hasActiveHours) {
+      panelHours.classList.add('hide-on-print');
     } else {
-      row.classList.remove('hide-on-print');
+      panelHours.classList.remove('hide-on-print');
     }
-  });
+  }
+
+  // 3. Comprobar apartado 4 (Pagas Extras)
+  const panelPays = document.getElementById("panel-pays");
+  if (panelPays) {
+    const payRows = panelPays.querySelectorAll('.quantity-row');
+    let hasActivePays = false;
+    payRows.forEach(row => {
+      const select = row.querySelector('select');
+      const val = select ? Number(select.value) : 0;
+      if (val > 0) {
+        hasActivePays = true;
+        row.classList.remove('hide-on-print');
+      } else {
+        row.classList.add('hide-on-print');
+      }
+    });
+    if (!hasActivePays) {
+      panelPays.classList.add('hide-on-print');
+    } else {
+      panelPays.classList.remove('hide-on-print');
+    }
+  }
+
   window.print();
+
+  // Restaurar estado visual tras imprimir
   setTimeout(() => {
-    quantityRows.forEach(row => row.classList.remove('hide-on-print'));
+    if (panelActions) panelActions.classList.remove("hide-on-print");
+    if (panelHours) panelHours.classList.remove("hide-on-print");
+    if (panelPays) panelPays.classList.remove("hide-on-print");
+    document.querySelectorAll('.quantity-row').forEach(row => row.classList.remove('hide-on-print'));
   }, 1000);
 }
