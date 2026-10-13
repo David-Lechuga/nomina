@@ -104,10 +104,10 @@ function resetForm() {
   calculate();
 }
 function init() {
-  loadAgentProfile();
   makeQuantityOptions(document.getElementById("trienio-c2"), "0");
   makeQuantityOptions(document.getElementById("trienio-c1"), "6");
   makeQuantityOptions(document.getElementById("noches"), "0");
+  loadAgentProfile();
   renderOvertime("hours-12", OVERTIME_12); renderOvertime("hours-8", OVERTIME_8);
   renderPayRows("pay-playa", PAY_PLAYA); renderPayRows("pay-regulation", PAY_ADDITIONAL);
   document.getElementById("payroll-form").addEventListener("input", calculate);
