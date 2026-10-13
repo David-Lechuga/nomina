@@ -1,4 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="96" fill="#0A2342"/>
-  <image href="https://alerta-alfa.com/25563-medium_default/placa-de-cartera-policia-local-andalucia-.jpg" x="32" y="32" width="448" height="448" preserveAspectRatio="xMidYMid meet"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="icon.svg"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5097656"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <rect
+     width="512"
+     height="512"
+     rx="96"
+     fill="#0A2342"
+     id="rect1" />
+  <image
+     href="https://alerta-alfa.com/25563-medium_default/placa-de-cartera-policia-local-andalucia-.jpg"
+     x="0.86934024"
+     y="0.86934024"
+     width="510.26129"
+     height="510.26129"
+     preserveAspectRatio="xMidYMid"
+     id="image1" />
 </svg>
