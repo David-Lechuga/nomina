@@ -14,12 +14,7 @@
 <body>
   <header class="site-header">
     <div class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 64 72" role="img">
-        <path d="M32 3 57 12v21c0 16-10 27-25 35C17 60 7 49 7 33V12Z" fill="none" stroke="currentColor" stroke-width="3"/>
-        <path d="M32 12 49 18v15c0 11-6 20-17 27-11-7-17-16-17-27V18Z" fill="none" stroke="currentColor" stroke-width="2"/>
-        <path d="M20 31h24M32 20v27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="32" cy="31" r="5" fill="currentColor"/>
-      </svg>
+      <img src="https://alerta-alfa.com/25563-medium_default/placa-de-cartera-policia-local-andalucia-.jpg" alt="Placa Policía Local Andalucía" style="width: 52px; height: auto; border-radius: 6px; object-fit: contain;">
     </div>
     <div class="brand-copy">
       <p class="eyebrow">POLICÍA LOCAL</p>
@@ -32,7 +27,7 @@
   <main class="page-shell">
     <section class="notice" aria-label="Aviso">
       <span class="notice-icon" aria-hidden="true">i</span>
-      <p>Calculadora orientativa basada en la hoja Excel facilitada. Revisa tus datos antes de interpretar el resultado; no sustituye a la nómina oficial.</p>
+      <p>Calculadora orientativa. Revisa tus datos antes de interpretar el resultado; no sustituye a la nómina oficial.</p>
     </section>
 
     <form id="payroll-form" autocomplete="off">
@@ -106,7 +101,7 @@
         <div class="section-heading">
           <span class="section-number">04</span>
           <div>
-            <h2>Pagas adicionales</h2>
+            <h2>Reglamento de Productividades</h2>
             <p>Selecciona las pagas que correspondan según los conceptos del Excel actualizado.</p>
           </div>
         </div>
@@ -115,7 +110,7 @@
           <div id="pay-playa" class="pay-items"></div>
         </div>
         <div class="subsection">
-          <h3><span class="subsection-dot"></span>Pagas adicionales</h3>
+          <h3><span class="subsection-dot"></span>Reglamento de Productividades</h3>
           <div id="pay-regulation" class="pay-items"></div>
         </div>
       </section>
@@ -130,21 +125,32 @@
         </div>
         <div class="pay-items">
           <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Aportación a la Seguridad Social</span><span class="item-note">Porcentaje fijo de la hoja Excel</span></div>
+            <span class="fixed-value">6,71 %</span>
+          </div>
+          <div class="pay-item fixed">
             <div class="item-copy"><span class="item-name">Prorrata de pagas extraordinarias</span><span class="item-note">Se utiliza en la base de Seguridad Social</span></div>
             <span class="fixed-value">422,00 €</span>
           </div>
           <div class="pay-item editable-row">
-            <label class="item-copy" for="irpf"><span class="item-name">Retención de IRPF</span><span class="item-note">Porcentaje aplicable</span></label>
-            <div class="input-wrap percent-input"><input id="irpf" name="irpf" type="number" min="0" max="100" step="0.01" inputmode="decimal" value="19" aria-label="Porcentaje de IRPF"><span>%</span></div>
-          </div>
-          <div class="pay-item fixed">
-            <div class="item-copy"><span class="item-name">Aportación a la Seguridad Social</span><span class="item-note">Porcentaje fijo de la hoja Excel</span></div>
-            <span class="fixed-value">6,71 %</span>
+            <label class="item-copy" for="irpf"><span class="item-name">Retención de IRPF</span><span class="item-note">Porcentaje aplicable (incrementos de 0,5)</span></label>
+            <div class="input-wrap percent-input"><input id="irpf" name="irpf" type="number" min="0" max="100" step="0.5" inputmode="decimal" value="19" aria-label="Porcentaje de IRPF"><span>%</span></div>
           </div>
         </div>
-        <div class="form-actions">
-          <button id="reset-button" class="button button-secondary" type="button">Restablecer valores</button>
-          <button id="print-button" class="button button-secondary" type="button">Imprimir / Guardar PDF</button>
+      </section>
+
+      <section class="panel apartado-acciones-panel">
+        <div class="section-heading">
+          <span class="section-number">06</span>
+          <div>
+            <h2>Acciones</h2>
+            <p>Restablecer valores o imprimir el documento actual.</p>
+          </div>
+        </div>
+        <div class="form-actions visible-actions">
+          <button id="save-profile-button" class="button button-primary-visible" type="button">Guardar perfil</button>
+          <button id="reset-button" class="button button-secondary-visible" type="button">Restablecer valores</button>
+          <button id="print-button" class="button button-secondary-visible" type="button">Imprimir / Guardar PDF</button>
         </div>
       </section>
     </form>
@@ -173,8 +179,8 @@
     </section>
 
     <footer class="site-footer">
-      <p>CREADO PARA USO ORIENTATIVO · POLICÍA LOCAL DE VEJER DE LA FRONTERA</p>
-      <p>Importes y porcentajes sujetos a revisión y actualización.</p>
+      <p class="autor-signature">CREADO POR DAVID LECHUGA</p>
+      <p>POLICÍA LOCAL DE VEJER DE LA FRONTERA · USO ORIENTATIVO</p>
     </footer>
   </main>
 </body>

@@ -104,6 +104,7 @@ function resetForm() {
   calculate();
 }
 function init() {
+  loadAgentProfile();
   makeQuantityOptions(document.getElementById("trienio-c2"), "0");
   makeQuantityOptions(document.getElementById("trienio-c1"), "6");
   makeQuantityOptions(document.getElementById("noches"), "0");
@@ -112,6 +113,7 @@ function init() {
   document.getElementById("payroll-form").addEventListener("input", calculate);
   document.getElementById("payroll-form").addEventListener("change", calculate);
   document.getElementById("reset-button").addEventListener("click", resetForm);
+  document.getElementById("save-profile-button").addEventListener("click", saveAgentProfile);
   document.getElementById("print-button").addEventListener("click", () => window.print());
   calculate();
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
@@ -119,3 +121,52 @@ function init() {
   }
 }
 document.addEventListener("DOMContentLoaded", init);
+
+// --- Gestión de Perfil de Agente (Trienios C2, C1 e IRPF) en localStorage ---
+const PROFILE_STORAGE_KEY = "nomina_pl_vejer_profile_v1";
+
+function saveAgentProfile() {
+  const profile = {
+    trienioC2: document.getElementById("trienio-c2").value,
+    trienioC1: document.getElementById("trienio-c1").value,
+    irpf: document.getElementById("irpf").value
+  };
+  try {
+    localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(profile));
+    const btn = document.getElementById("save-profile-button");
+    if (btn) {
+      const originalText = btn.textContent;
+      btn.textContent = "¡Perfil guardado!";
+      btn.style.background = "#177b56";
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "";
+      }, 2000);
+    }
+  } catch (e) {
+    console.warn("No se pudo guardar el perfil:", e);
+  }
+}
+
+function loadAgentProfile() {
+  try {
+    const saved = localStorage.getItem(PROFILE_STORAGE_KEY);
+    if (saved) {
+      const profile = JSON.parse(saved);
+      if (profile.trienioC2 !== undefined) {
+        const el = document.getElementById("trienio-c2");
+        if (el) el.value = profile.trienioC2;
+      }
+      if (profile.trienioC1 !== undefined) {
+        const el = document.getElementById("trienio-c1");
+        if (el) el.value = profile.trienioC1;
+      }
+      if (profile.irpf !== undefined) {
+        const el = document.getElementById("irpf");
+        if (el) el.value = profile.irpf;
+      }
+    }
+  } catch (e) {
+    console.warn("No se pudo cargar el perfil guardado:", e);
+  }
+}

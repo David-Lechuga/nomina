@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
   <rect width="128" height="128" rx="28" fill="#0A2342"/>
-  <path d="M64 12 105 27v33c0 25-16 42-41 56C39 102 23 85 23 60V27Z" fill="none" stroke="#e5cb82" stroke-width="5"/>
-  <path d="M64 26 91 36v24c0 17-10 29-27 39C47 89 37 77 37 60V36Z" fill="none" stroke="#fff" stroke-width="3"/>
-  <path d="M45 61h38M64 43v36" stroke="#e5cb82" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="64" cy="61" r="8" fill="#e5cb82"/>
+  <!-- Placa / Estrella de Policía Estilizada -->
+  <path d="M64 16l14 28 31 5-22 21 5 31-28-15-28 15 5-31-22-21 31-5z" fill="none" stroke="#e5cb82" stroke-width="4" stroke-linejoin="round"/>
+  <polygon points="64,28 72,46 92,49 77,63 81,83 64,73 47,83 51,63 36,49 56,46" fill="#e5cb82" opacity="0.9"/>
+  <!-- Detalles interiores de autoridad -->
+  <circle cx="64" cy="62" r="14" fill="#0A2342" stroke="#fff" stroke-width="3"/>
+  <path d="M56 62h16M64 54v16" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
 </svg>

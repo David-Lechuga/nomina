@@ -59,10 +59,15 @@ select:focus { outline: 3px solid #d9e8f7; border-color: #5a88b4; }
 .subsection { margin-top: 20px; }
 .subsection h3 { display: flex; align-items: center; gap: 9px; margin: 0; padding: 0 0 5px; font: 800 .95rem Manrope, sans-serif; color: var(--navy-2); }
 .subsection-dot { width: 8px; height: 8px; border-radius: 3px; background: #c5a75a; }
-.form-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 17px; }
-.button { border: 0; border-radius: 10px; min-height: 42px; padding: 10px 15px; font-weight: 700; font-size: .85rem; cursor: pointer; }
-.button-secondary { background: #edf2f7; color: var(--navy); }
-.button:hover { filter: brightness(.97); }
+
+/* Botones muy visibles en Apartado 6 */
+.visible-actions { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 18px; justify-content: center; }
+.button { border: 0; border-radius: 12px; min-height: 48px; padding: 12px 24px; font-weight: 700; font-size: .92rem; cursor: pointer; box-shadow: 0 4px 12px rgba(10, 35, 66, 0.12); transition: all 0.2s ease; }
+.button-primary-visible { background: var(--navy); color: white; }
+.button-primary-visible:hover { background: var(--navy-2); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(10, 35, 66, 0.2); }
+.button-secondary-visible { background: #e2eaf4; color: var(--navy); border: 1px solid #cbd8e4; }
+.button-secondary-visible:hover { background: #d0e0f0; transform: translateY(-1px); }
+
 .results-panel { padding: 24px; border-color: #cfdce8; }
 .results-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 19px; }
 .results-heading .eyebrow { color: var(--blue); }
@@ -80,8 +85,12 @@ select:focus { outline: 3px solid #d9e8f7; border-color: #5a88b4; }
 .net-card strong { display: block; margin: 8px 0 6px; color: #126442; font: 800 clamp(2rem, 6vw, 2.7rem)/1.1 Manrope, sans-serif; letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
 .net-card small { color: #557764; font-size: .75rem; }
 .calculation-note { margin: 15px 2px 0; color: var(--muted); font-size: .75rem; line-height: 1.5; }
-.site-footer { padding: 12px 8px 0; text-align: center; color: #718093; font-size: .7rem; line-height: 1.5; letter-spacing: .02em; }
+
+/* Firma visible al final */
+.site-footer { padding: 18px 8px 10px; text-align: center; color: #4a5568; font-size: .8rem; line-height: 1.6; letter-spacing: .03em; }
 .site-footer p { margin: 4px 0; }
+.autor-signature { font-weight: 800; font-size: .95rem; color: var(--navy); letter-spacing: .08em; }
+
 @media (max-width: 600px) {
   .site-header { padding: 19px 16px; gap: 11px; }
   .brand-mark { width: 43px; flex-basis: 43px; }
@@ -106,7 +115,7 @@ select:focus { outline: 3px solid #d9e8f7; border-color: #5a88b4; }
   .gross-card { padding: 16px 13px; }
   .gross-card span { font-size: .82rem; }
   .result-line { font-size: .79rem; }
-  .button { flex: 1 1 150px; }
+  .button { flex: 1 1 100%; min-height: 46px; }
 }
 @media print {
   body { background: white; }
