@@ -133,3 +133,7 @@ select:focus { outline: 3px solid #d9e8f7; border-color: #5a88b4; }
 .quantity-controls { display: flex; align-items: center; justify-content: flex-end; gap: 10px; flex: 0 0 auto; }
 .quantity-total { min-width: 94px; text-align: right; color: var(--green); font-size: .88rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 @media (max-width: 600px) { .quantity-controls { gap: 6px; } .quantity-total { min-width: 78px; font-size: .78rem; } }
+
+@media print {
+  .hide-on-print { display: none !important; }
+}

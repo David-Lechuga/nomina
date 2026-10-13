@@ -114,7 +114,7 @@ function init() {
   document.getElementById("payroll-form").addEventListener("change", calculate);
   document.getElementById("reset-button").addEventListener("click", resetForm);
   document.getElementById("save-profile-button").addEventListener("click", saveAgentProfile);
-  document.getElementById("print-button").addEventListener("click", () => window.print());
+  document.getElementById("print-button").addEventListener("click", handlePrint);
   calculate();
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(error => console.warn("No se pudo registrar el modo sin conexión:", error)));
@@ -169,4 +169,22 @@ function loadAgentProfile() {
   } catch (e) {
     console.warn("No se pudo cargar el perfil guardado:", e);
   }
+}
+
+function handlePrint() {
+  const quantityRows = document.querySelectorAll('.quantity-row');
+  quantityRows.forEach(row => {
+    const select = row.querySelector('select');
+    const input = row.querySelector('input');
+    const val = select ? Number(select.value) : (input ? Number(input.value) : 0);
+    if (val === 0) {
+      row.classList.add('hide-on-print');
+    } else {
+      row.classList.remove('hide-on-print');
+    }
+  });
+  window.print();
+  setTimeout(() => {
+    quantityRows.forEach(row => row.classList.remove('hide-on-print'));
+  }, 1000);
 }
