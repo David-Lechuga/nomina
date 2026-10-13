@@ -1,0 +1,20 @@
+{
+  "name": "Calculadora de Nóminas · Policía Local de Vejer",
+  "short_name": "Nóminas Vejer",
+  "description": "Calculadora orientativa de nóminas basada en la hoja Excel facilitada.",
+  "lang": "es-ES",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f6fa",
+  "theme_color": "#0A2342",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0A2342">
+  <meta name="description" content="Calculadora orientativa de nóminas para Policía Local de Vejer de la Frontera.">
+  <title>Calculadora de Nóminas · Policía Local de Vejer</title>
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 64 72" role="img">
+        <path d="M32 3 57 12v21c0 16-10 27-25 35C17 60 7 49 7 33V12Z" fill="none" stroke="currentColor" stroke-width="3"/>
+        <path d="M32 12 49 18v15c0 11-6 20-17 27-11-7-17-16-17-27V18Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 31h24M32 20v27" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="32" cy="31" r="5" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="brand-copy">
+      <p class="eyebrow">POLICÍA LOCAL</p>
+      <h1>Calculadora de nóminas</h1>
+      <p class="subtitle">Vejer de la Frontera · 2026</p>
+    </div>
+    <span class="year-pill">2026</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="notice" aria-label="Aviso">
+      <span class="notice-icon" aria-hidden="true">i</span>
+      <p>Calculadora orientativa basada en la hoja Excel facilitada. Revisa tus datos antes de interpretar el resultado; no sustituye a la nómina oficial.</p>
+    </section>
+
+    <form id="payroll-form" autocomplete="off">
+      <section class="panel">
+        <div class="section-heading">
+          <span class="section-number">01</span>
+          <div>
+            <h2>Retribuciones mensuales</h2>
+            <p>Introduce los importes variables que correspondan.</p>
+          </div>
+        </div>
+        <div class="pay-items">
+          <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Sueldo base</span><span class="item-note">Importe fijo</span></div>
+            <span class="fixed-value">900,63 €</span>
+          </div>
+          <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Complemento de destino</span><span class="item-note">Importe fijo</span></div>
+            <span class="fixed-value">637,73 €</span>
+          </div>
+          <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Complemento específico</span><span class="item-note">Importe fijo</span></div>
+            <span class="fixed-value">1.163,16 €</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <span class="section-number">02</span>
+          <div>
+            <h2>Antigüedad y noches</h2>
+            <p>Selecciona la cantidad correspondiente, de 0 a 20.</p>
+          </div>
+        </div>
+        <div class="pay-items">
+          <div class="pay-item quantity-row">
+            <div class="item-copy"><span class="item-name">Trienio antiguo (C2)</span><span class="item-note">Hasta 2002 · 22,44 € por unidad</span></div>
+            <div class="quantity-controls"><select id="trienio-c2" name="trienio-c2" aria-label="Cantidad de trienios antiguos C2"></select><strong class="quantity-total" id="trienio-c2-total">0,00 €</strong></div>
+          </div>
+          <div class="pay-item quantity-row">
+            <div class="item-copy"><span class="item-name">Trienio actual (C1)</span><span class="item-note">32,96 € por unidad</span></div>
+            <div class="quantity-controls"><select id="trienio-c1" name="trienio-c1" aria-label="Cantidad de trienios actuales C1"></select><strong class="quantity-total" id="trienio-c1-total">0,00 €</strong></div>
+          </div>
+          <div class="pay-item quantity-row">
+            <div class="item-copy"><span class="item-name">Noches</span><span class="item-note">12,16 € por unidad</span></div>
+            <div class="quantity-controls"><select id="noches" name="noches" aria-label="Cantidad de noches"></select><strong class="quantity-total" id="noches-total">0,00 €</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <span class="section-number">03</span>
+          <div>
+            <h2>Horas extraordinarias</h2>
+            <p>Indica el número de servicios de cada tipo.</p>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3><span class="subsection-dot"></span>Servicios de 12 horas</h3>
+          <div id="hours-12" class="pay-items"></div>
+        </div>
+        <div class="subsection">
+          <h3><span class="subsection-dot"></span>Servicios de 8 horas</h3>
+          <div id="hours-8" class="pay-items"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <span class="section-number">04</span>
+          <div>
+            <h2>Pagas adicionales</h2>
+            <p>Selecciona las pagas que correspondan según los conceptos del Excel actualizado.</p>
+          </div>
+        </div>
+        <div class="subsection">
+          <h3><span class="subsection-dot"></span>Acuerdo de Playa</h3>
+          <div id="pay-playa" class="pay-items"></div>
+        </div>
+        <div class="subsection">
+          <h3><span class="subsection-dot"></span>Pagas adicionales</h3>
+          <div id="pay-regulation" class="pay-items"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <span class="section-number">05</span>
+          <div>
+            <h2>Retenciones</h2>
+            <p>Porcentajes y bases utilizados en el cálculo estimado de la nómina.</p>
+          </div>
+        </div>
+        <div class="pay-items">
+          <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Prorrata de pagas extraordinarias</span><span class="item-note">Se utiliza en la base de Seguridad Social</span></div>
+            <span class="fixed-value">422,00 €</span>
+          </div>
+          <div class="pay-item editable-row">
+            <label class="item-copy" for="irpf"><span class="item-name">Retención de IRPF</span><span class="item-note">Porcentaje aplicable</span></label>
+            <div class="input-wrap percent-input"><input id="irpf" name="irpf" type="number" min="0" max="100" step="0.01" inputmode="decimal" value="19" aria-label="Porcentaje de IRPF"><span>%</span></div>
+          </div>
+          <div class="pay-item fixed">
+            <div class="item-copy"><span class="item-name">Aportación a la Seguridad Social</span><span class="item-note">Porcentaje fijo de la hoja Excel</span></div>
+            <span class="fixed-value">6,71 %</span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button id="reset-button" class="button button-secondary" type="button">Restablecer valores</button>
+          <button id="print-button" class="button button-secondary" type="button">Imprimir / Guardar PDF</button>
+        </div>
+      </section>
+    </form>
+
+    <section class="results-panel" aria-live="polite" aria-atomic="true">
+      <div class="results-heading">
+        <div>
+          <p class="eyebrow">RESUMEN ESTIMADO</p>
+          <h2>Tu nómina calculada</h2>
+        </div>
+        <span class="live-badge"><span></span> Actualización automática</span>
+      </div>
+      <div class="gross-card">
+        <span>Importe total bruto</span>
+        <strong id="gross-total">—</strong>
+      </div>
+      <div class="result-line"><span>Base para Seguridad Social (bruto + prorrata)</span><strong id="ss-base">—</strong></div>
+      <div class="result-line deduction"><span>Aportación a la Seguridad Social</span><strong id="ss-deduction">—</strong></div>
+      <div class="result-line deduction"><span>Retención de IRPF</span><strong id="irpf-deduction">—</strong></div>
+      <div class="net-card">
+        <span>LÍQUIDO ESTIMADO A PERCIBIR</span>
+        <strong id="net-total">—</strong>
+        <small>El cálculo reproduce las fórmulas de la hoja Excel facilitada.</small>
+      </div>
+      <p class="calculation-note">La prorrata de pagas extras se utiliza en la base de Seguridad Social según el Excel; no se suma al bruto ni al líquido en esta fórmula.</p>
+    </section>
+
+    <footer class="site-footer">
+      <p>CREADO PARA USO ORIENTATIVO · POLICÍA LOCAL DE VEJER DE LA FRONTERA</p>
+      <p>Importes y porcentajes sujetos a revisión y actualización.</p>
+    </footer>
+  </main>
+</body>
+</html>
