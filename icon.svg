@@ -2,17 +2,15 @@
 <svg
    viewBox="0 0 512 512"
    version="1.1"
-   id="svg1"
+   id="svg9"
    sodipodi:docname="icon.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1" />
   <sodipodi:namedview
-     id="namedview1"
+     id="namedview9"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -28,19 +26,130 @@
      inkscape:window-x="-9"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1" />
+     inkscape:current-layer="svg9" />
+  <defs
+     id="defs4">
+    <rect
+       x="145.05563"
+       y="139.09444"
+       width="204.00517"
+       height="27.156533"
+       id="rect10" />
+    <linearGradient
+       id="bgGrad"
+       x1="0%"
+       y1="0%"
+       x2="100%"
+       y2="100%">
+      <stop
+         offset="0%"
+         stop-color="#071a32"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0A2342"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="goldGrad"
+       x1="279"
+       y1="289"
+       x2="381"
+       y2="391"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3781962,0,0,1.3781962,-93.044446,-101.12354)">
+      <stop
+         offset="0%"
+         stop-color="#f5d77f"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#c5a75a"
+         id="stop4" />
+    </linearGradient>
+  </defs>
+  <!-- Fondo con esquinas redondeadas -->
   <rect
      width="512"
      height="512"
-     rx="96"
-     fill="#0A2342"
-     id="rect1" />
-  <image
-     href="https://alerta-alfa.com/25563-medium_default/placa-de-cartera-policia-local-andalucia-.jpg"
-     x="0.86934024"
-     y="0.86934024"
-     width="510.26129"
-     height="510.26129"
-     preserveAspectRatio="xMidYMid"
-     id="image1" />
+     rx="112"
+     fill="url(#bgGrad)"
+     id="rect4" />
+  <!-- Documento / Nómina base -->
+  <rect
+     x="66.826317"
+     y="31.1833"
+     width="385.89493"
+     height="441.0228"
+     rx="27.563925"
+     fill="#ffffff"
+     stroke="#d9e4ee"
+     stroke-width="5.51278"
+     id="rect5" />
+  <!-- Cabecera dorada del documento -->
+  <path
+     d="M 66.826314,58.747225 H 452.72126 V 146.95178 H 66.826314 Z"
+     fill="#f3f6fa"
+     id="path5"
+     style="stroke-width:1.3782" />
+  <!-- Líneas de texto simuladas en la nómina -->
+  <rect
+     x="121.95416"
+     y="191.05406"
+     width="192.94746"
+     height="22.05114"
+     rx="11.02557"
+     fill="#0a2342"
+     opacity="0.8"
+     id="rect6"
+     style="stroke-width:1.3782" />
+  <rect
+     x="121.95416"
+     y="237.91273"
+     width="275.63925"
+     height="16.538355"
+     rx="8.2691774"
+     fill="#68788a"
+     opacity="0.6"
+     id="rect7"
+     style="stroke-width:1.3782" />
+  <rect
+     x="121.95416"
+     y="282.01501"
+     width="234.29337"
+     height="16.538355"
+     rx="8.2691774"
+     fill="#68788a"
+     opacity="0.6"
+     id="rect8"
+     style="stroke-width:1.3782" />
+  <!-- Símbolo de moneda / euro o verificación dorada -->
+  <circle
+     cx="361.76031"
+     cy="367.4632"
+     r="66.153419"
+     fill="url(#goldGrad)"
+     stroke="#ffffff"
+     stroke-width="8.26918"
+     id="circle8"
+     style="fill:url(#goldGrad)" />
+  <!-- Estrella / Corona superior premium -->
+  <text
+     xml:space="preserve"
+     style="font-family:'Javanese Text';-inkscape-font-specification:'Javanese Text';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:5.66929"
+     x="151.01682"
+     y="154.32858"
+     id="text9"><tspan
+       sodipodi:role="line"
+       id="tspan9"
+       x="151.01682"
+       y="154.32858" /></text>
+  <text
+     xml:space="preserve"
+     id="text10"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Franklin Gothic Medium';-inkscape-font-specification:'Franklin Gothic Medium, ';text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect10);fill:#000000;fill-opacity:1;stroke:none;stroke-width:5.66929;stroke-opacity:1"
+     transform="matrix(3.154207,0,0,3.154207,-334.6151,-378.32099)"><tspan
+       x="145.05469"
+       y="160.97252"
+       id="tspan1">NÓMINA</tspan></text>
 </svg>
