@@ -4,7 +4,7 @@ const EURO = new Intl.NumberFormat("es-ES", {
 const FIXED = {
   sueldoBase: 900.63, destino: 637.73, especifico: 1163.16,
   trienioC2: 22.44, trienioC1: 32.96, noche: 12.16,
-  prorrata: 422, seguridadSocial: 6.71
+  prorrata: 452, seguridadSocial: 6.71
 };
 const OVERTIME_12 = [
   { id: "extra-12-1", label: "H.E. de L-V de 07:00 a 19:00", rate: 268.80 },
@@ -90,7 +90,8 @@ function calculate() {
   });
   const gross = FIXED.sueldoBase + FIXED.destino + FIXED.especifico + c2 + c1 + nights + overtime + extraPayments;
   const ssBase = gross + FIXED.prorrata;
-  const ss = ssBase * FIXED.seguridadSocial / 100;
+  const calculatedSS = ssBase * FIXED.seguridadSocial / 100;
+  const ss = Math.min(calculatedSS, 342.29);
   const irpfPercent = Math.min(100, Math.max(0, Number(document.getElementById("irpf").value) || 0));
   const irpf = gross * irpfPercent / 100;
   const net = gross - ss - irpf;
