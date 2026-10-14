@@ -101,6 +101,8 @@ function calculate() {
   const irpfPercent = Math.min(100, Math.max(0, Number(document.getElementById("irpf").value) || 0));
   const irpf = gross * irpfPercent / 100;
   const net = gross - ss - irpf;
+  const gratificaciones = nights + overtime + extraPayments;
+  setMoney("gratificaciones-total", gratificaciones);
   setMoney("gross-total", gross); setMoney("ss-base", ssBase);
   setMoney("ss-deduction", ss); setMoney("irpf-deduction", irpf); setMoney("net-total", net);
 }

@@ -137,3 +137,11 @@ select:focus { outline: 3px solid #d9e8f7; border-color: #5a88b4; }
 @media print {
   .hide-on-print { display: none !important; }
 }
+
+@page {
+  size: A4 portrait;
+  margin: 10mm;
+}
+@media print {
+
+}
