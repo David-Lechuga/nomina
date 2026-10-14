@@ -34,10 +34,14 @@ const PAY_ADDITIONAL = [
   { id: "paga-octubre", label: "Paga de octubre", rate: 800 },
   { id: "paga-noviembre", label: "Paga de noviembre", rate: 800 }
 ];
+const PAY_JUNE_DEC = [
+  { id: "paga-base-jun-dic", label: "Sueldo base Paga extra (778,42 €) + C. Especifico (100%) + C. Destino (100%)", rate: 2579.31, max: 1 },
+  { id: "paga-trienios-jun-dic", label: "Trienios Paga Extra", rate: 28.45, max: 18 }
+];
 const originalValues = { "trienio-c2": "0", "trienio-c1": "6", noches: "0", irpf: "19" };
 const ALL_QUANTITY_ROWS = [
   { id: "trienio-c2", rate: FIXED.trienioC2 }, { id: "trienio-c1", rate: FIXED.trienioC1 },
-  { id: "noches", rate: FIXED.noche }, ...OVERTIME_12, ...OVERTIME_8, ...PAY_PLAYA, ...PAY_ADDITIONAL
+  { id: "noches", rate: FIXED.noche }, ...OVERTIME_12, ...OVERTIME_8, ...PAY_PLAYA, ...PAY_ADDITIONAL, ...PAY_JUNE_DEC
 ];
 function euro(value) { return EURO.format(value); }
 function makeQuantityOptions(select, selected = "0", max = 20) {
@@ -89,7 +93,9 @@ function calculate() {
     if (row.id.startsWith("paga-")) extraPayments += amount;
   });
   const gross = FIXED.sueldoBase + FIXED.destino + FIXED.especifico + c2 + c1 + nights + overtime + extraPayments;
-  const ssBase = gross + FIXED.prorrata;
+  const prorrata = ((2 * PAY_JUNE_DEC[0].rate) + (2 * quantityValue("trienio-c1") * PAY_JUNE_DEC[1].rate)) / 12;
+  setMoney("prorrata-value", prorrata);
+  const ssBase = gross + prorrata;
   const calculatedSS = ssBase * FIXED.seguridadSocial / 100;
   const ss = Math.min(calculatedSS, 342.29);
   const irpfPercent = Math.min(100, Math.max(0, Number(document.getElementById("irpf").value) || 0));
@@ -111,6 +117,7 @@ function init() {
   loadAgentProfile();
   renderOvertime("hours-12", OVERTIME_12); renderOvertime("hours-8", OVERTIME_8);
   renderPayRows("pay-playa", PAY_PLAYA); renderPayRows("pay-regulation", PAY_ADDITIONAL);
+  PAY_JUNE_DEC.forEach(row => addQuantityRow(document.getElementById("pay-june-dec"), row, { max: row.max }));
   document.getElementById("payroll-form").addEventListener("input", calculate);
   document.getElementById("payroll-form").addEventListener("change", calculate);
   document.getElementById("reset-button").addEventListener("click", resetForm);
